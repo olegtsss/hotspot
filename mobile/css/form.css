@@ -1,0 +1,174 @@
+html, body {
+    background: url("../img/background.png");
+    height: 100%;
+    min-height: 100px;
+}
+
+.hide{
+    display: none !important;
+}
+
+.container {
+    width: 100%;
+    width: 100%;
+    height: 100% !important;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    margin-bottom: 42px;
+}
+
+label {
+    font-size: 12px;
+    font-family: "Opium";
+    /*coffeecup color*/
+    color: #8F3F97;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.form {
+    background: #fff;
+    border: solid 1px rgb(220, 224, 226);
+    border-radius: 15px;
+    padding: 42px;
+
+}
+
+@media only screen and (min-width: 400px) {
+    .form {
+        padding: 24px;
+    }
+}
+
+input[type="text"] {
+    background-color: rgb(237, 245, 255);
+    border: none;
+    padding: 17px;
+    margin: 7px;
+    /*min-width: 280px;*/
+    width: 100%;
+    font-size: 18px;
+    /*coffeecup color*/
+    color: #8F3F97;
+}
+
+.code input[type="text"], .form.already input[type="text"]{
+    text-align: center !important;
+}
+
+.btn {
+
+    font-size: 12px;
+    font-family: "Roboto";
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+
+    border-radius: 5px;
+    border: none;
+    /*coffeecup color*/
+    background-color: #8F3F97;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    padding: 12px 42px;
+    cursor: pointer;
+    transition: background-color .5s;
+
+    margin: 0 auto;
+
+}
+
+.disabled, .disabled:hover{
+    background: #eee !important;
+    cursor: auto;
+}
+
+.btn:hover {
+    /*coffeecup color*/
+    background-color: rgb(143, 63, 151);
+    opacity: 0.9;
+}
+
+.form_description {
+    font-size: 16px;
+    font-family: "Opium";
+    color: rgb(159, 166, 168);
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.input_group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal_trigger {
+    padding: 4px;
+    cursor: pointer;
+    /*coffeecup color*/
+    color: rgb(143, 63, 151) !important;
+    text-decoration: none;
+}
+
+#login, #login2 {
+    text-align: center;
+    /*coffeecup color*/
+    border: solid 2px #8F3F97;
+    outline:none;
+}
+
+#code, #code2{
+    text-align: center;
+    /*coffeecup color*/
+    border: solid 2px #8F3F97;
+    outline:none;
+}
+
+.tel:focus{
+border: 5px solid red;
+}
+
+#has_code {
+    /*coffeecup color*/
+    color: rgb(143, 63, 151);
+    text-decoration: none;
+}
+
+/*У меня уже есть код, кнопка "Далее"*/
+.btn2 {
+
+    font-size: 12px;
+    font-family: "Roboto";
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+
+    border-radius: 5px;
+    border: none;
+    /*coffeecup color*/
+    background-color: #8F3F97;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    padding: 12px 42px;
+    cursor: pointer;
+    transition: background-color .5s;
+
+    margin: 0 auto;
+
+}

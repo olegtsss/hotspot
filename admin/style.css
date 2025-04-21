@@ -1,0 +1,303 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+	padding-top: 10px;
+	margin: 0 auto;
+	margin-top: 100px;
+	background-color: #ccc;
+	min-height: 350px;
+    min-width: 1130px;
+}
+
+.container_2 {
+    margin: 0 auto;
+    background-color: #ccc;
+}
+
+h1, h5 {
+	text-align: center;
+}
+
+#button_exit {
+    margin-left: 93%;
+/*    margin-top: 1%;*/
+    position: relative;
+}
+
+/*Кнопка обновить для вкладки Пользователи и Бары*/
+#button_update_page {
+    margin-left: 20px;
+    position: relative;
+}
+
+/*Кнопка обновить*/
+#button_update_page_2 {
+    margin-left: 91%;
+    position: relative;
+}
+
+/*Кнопка Экспорт в Exel*/
+#button_update_page_3 {
+    margin-left: 88%;
+    position: relative;
+}
+
+#button_exit_add_user {
+    margin-left: 77%;
+    position: relative;
+    float:left;
+}
+
+/*Кнопка Добавить для страницы пользователей*/
+#button_exit_add_user_2 {
+    margin-left: 91%;
+    position: relative;
+}
+
+#button_exit_add_user_form {
+    margin-left: 95%;
+    position: relative;
+}
+
+table {
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size: 12px;
+border-collapse: collapse;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+/*width: 800px;*/
+table-layout: fixed;
+}
+
+th, td:first-child {
+background: #AFCDE7;
+color: black;
+}
+
+th, td {
+border-style: solid;
+border-width: 0 1px 1px 0;
+border-color: white;
+}
+
+td {
+background: #D8E6F3;
+}
+
+td div {
+    overflow: hidden; /* Добавляем полосы прокрутки */
+    width: 150px;  /* Ширина элемента */
+    /*white-space: pre;  Убрать перенос слов */
+}
+
+/*Кнопки Изменить Удалить*/
+.myclass{
+    width: 80px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+    float: left;
+}
+
+/*Кнопки Изменить Удалить*/
+.myclass_bar{
+    width: 90px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+    float: left;
+}
+
+/*Кнопки перемещения по страницам*/
+.myclass_page{
+    width: 45px;
+    font-size: 14px;
+    margin-left: 4px;
+    float: left;
+}
+
+/*Кнопки перемещения по страницам (текущая страница)*/
+.myclass_page_current{
+    width: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 4px;
+    float: left;
+}
+
+/*Поле для ввода*/
+.myclass_input{
+    width: 250px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    float: left;
+}
+
+/*Поле для ввода для баров*/
+.myclass_input_coffepoints{
+    width: 200px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    float: left;
+}
+
+#database_print {
+	margin: 0 auto;
+}
+
+.footer {
+    text-align: right;
+    margin-right: 50px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu button {
+    width: 180px;
+    height: 30px;
+    border: none;
+    /*font-weight: bold;*/
+    margin: 10px;
+    font-size: 17px;    /*Размер шрифта для кнопок меню*/
+}
+
+#forbidden {
+    text-align: center;
+}
+
+#table_registrations_1 {
+    width: 40px;
+}
+
+#table_registrations_2 {
+    width: 100px;
+}
+
+#table_registrations_3 {
+    width: 70px;
+}
+
+#table_registrations_4 {    /* Бар */
+    width: 140px;
+}
+
+#table_registrations_5 {
+    width: 50px;
+}
+
+#table_registrations_6 {
+    width: 110px;
+}
+
+#table_registrations_7 {    /* MAC */
+    width: 110px;
+}
+
+#table_registrations_8 {    /* Host */
+    width: 140px;
+}
+
+#table_registrations_9 {
+    width: 110px;
+}
+
+#table_registrations_10 {
+    width: 110px;
+}
+
+#table_registrations_11 {
+    width: 110px;
+}
+
+/*Был ранее порядковый номер
+#table_users_1 {
+    width: 40px;
+}*/
+
+#table_users_2 {
+    width: 150px;
+}
+
+#table_users_3 {
+    width: 350px;
+}
+
+#table_users_4 {
+    width: 430px;
+}
+
+#table_coffeepoints_1 {
+    width: 40px;
+}
+
+#table_coffeepoints_2 {
+    width: 250px;
+}
+
+#table_coffeepoints_3 {
+    width: 250px;
+}
+
+#table_coffeepoints_4 {
+    width: 440px;
+}
+
+#table_statutes_1 {
+    width: 40px;
+}
+
+#table_statutes_2 {
+    width: 300px;
+}
+
+#table_statutes_3 {
+    width: 300px;
+}
+
+/*
+был порядковый номер
+#table_ban_1 {
+    width: 40px;
+}*/
+
+#table_ban_2 {
+    width: 150px;
+}
+
+#table_ban_3 {
+    width: 110px;
+}
+
+#table_ban_4 {
+    width: 90px;
+}
+
+#table_ban_5 {
+    width: 150px;
+}
+
+#table_ban_6 {
+    width: 90px;
+}
+
+#table_ban_7 {
+    width: 70px;
+}
+
+#table_ban_8 {
+    width: 330px;
+}
