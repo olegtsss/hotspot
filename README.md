@@ -1,5 +1,6 @@
 # Описание проекта Hotspot:
-Проект для организации hotspot, созданный в интересах компании `Coffeecuptogo`. Позволяет организовать гостевой доступ в интернет по технологии `hotspot` на оборудовании `Mikrotik` в соответствии с требованиями регуляторов. Подробно освещен на Хабре (`https://habr.com/ru/articles/534936/` и `https://habr.com/ru/companies/ruvds/articles/695066/`). Backend самописный без применения каких-либо frameworks. Разработан простейший web application firewall (`WAF`) для защиты от bruteforce. Скрипты и фронтенд для роутеров частично заимствованы из различных источников. Проект находился в коммерческой эксплуатации в период с 2019 - 2025 года.
+
+Проект для организации hotspot технологии под ключ, созданный в интересах компании `Coffeecuptogo`. Позволяет организовать гостевой доступ в интернет по технологии `hotspot` на оборудовании `Mikrotik` в соответствии с требованиями регуляторов. Подробно освещен на Хабре (`https://habr.com/ru/articles/534936/` и `https://habr.com/ru/companies/ruvds/articles/695066/`). Backend нативный без применения каких-либо frameworks. Разработан web application firewall (`WAF`) для защиты от bruteforce. Скрипты и фронтенд для роутеров частично заимствованы из различных источников. Проект находился в коммерческой эксплуатации в период с 2019-2025 года.
 
 ### Используемые технологии:
 
@@ -12,7 +13,7 @@ Php, Javascript, Lua, Mysql
 - `mikrotik` - обвязка со стороны роутеров.
 - `pbx` - сервис для передачи гостям временного пароля посредством IP телефонии.
 
-На роутерах подняты сервисы `Hotspot` (предоставляемый `RouterOS` функционал). При регистрации хоста в гостевой сети пользователь посредством `Firewall Filter` перенаправляется на страницу авторизации `mobile`, лежащую в памяти роутера. Гость в ней указывает свой номер телефона и нажимает на кнопку `Далее`. Lua скриптом в `RouterOS` выполняется `http get` на сервис `api` для получения случайного пароля доступа (так как ранее `RouterOS` не предоставлял необходимую функцию). Далее пароль направляется на сервис `pbx`, который его сообщает гостю посредством звонка с `Asterisk` и озвучивания сгенерированного пароля. Дополнительно в операционной системе роутера создается пользователь `Hotspot` с нужным паролем. Frontend переводит пользователя на страницу ввода пароля и, в случае его корректности, отображает рекламный баннер и далее пропускает гостевой трафик в интернет. Администратор сервиса подключает бары к системе и смотрит на результаты его работы посредством сервиса `admin`.
+На роутерах подняты сервисы `Hotspot` (функционал, предоставляемый `RouterOS`). При регистрации хоста в гостевой сети пользователь посредством `Firewall Filter` перенаправляется на страницу авторизации `mobile`, лежащую в памяти роутера. Гость в ней указывает свой номер телефона и нажимает на кнопку `Далее`. Lua скриптом в `RouterOS` выполняется `http get` на сервис `api` для получения случайного пароля доступа. Далее пароль направляется на сервис `pbx`, который его сообщает гостю посредством звонка с `Asterisk` и озвучивания сгенерированного пароля. Дополнительно в операционной системе роутера создается пользователь `Hotspot` с нужным паролем. Frontend переводит пользователя на страницу ввода пароля и, в случае его корректности, отображает рекламный баннер и далее пропускает гостевой трафик в интернет. Администратор сервиса подключает бары к системе и смотрит на результаты его работы посредством сервиса `admin`.
 
 ### Подготовка базы данных:
 
@@ -95,7 +96,7 @@ MYSQL_SERVER=127.0.0.1
 MYSQL_USER=brute_user
 MYSQL_PASS=12345
 MYSQL_DB=bruteforce
-DIR_WITH_SITE='/var/www/https/coffeecuptogo_admin.olegtsss.ru/'
+DIR_WITH_SITE='/var/www/https/coffeecuptogo_admin.ru/'
 
 TIME_NOW=`date +%s`
 TIME_IN_RECORD=0
@@ -145,44 +146,44 @@ FILE_FOR_DUMP=dump_coffeecuptogo_$NEW_DATE.sql
 
 ### Работа с веб серверами:
 
-* Прокси на api (/etc/apache2/sites-available/coffeecuptogo.olegtsss.ru.conf):
+* Прокси на api (/etc/apache2/sites-available/coffeecuptogo.ru.conf):
 
 ```
-<VirtualHost coffeecuptogo.olegtsss.ru:5000>
+<VirtualHost coffeecuptogo.ru:5000>
         ServerAdmin admin@olegtsss.ru
-        ServerName coffeecuptogo.olegtsss.ru
-        ServerAlias www.coffeecuptogo.olegtsss.ru
-        DocumentRoot /var/www/https/coffeecuptogo.olegtsss.ru/
+        ServerName coffeecuptogo.ru
+        ServerAlias www.coffeecuptogo.ru
+        DocumentRoot /var/www/https/coffeecuptogo.ru/
         ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
         SSLEngine on
-        SSLCertificateFile /etc/apache2/ssl_keys_for_apache/coffeecuptogo.olegtsss.ru.crt
-        SSLCertificateKeyFile /etc/apache2/ssl_keys_for_apache/coffeecuptogo.olegtsss.ru.key
+        SSLCertificateFile /etc/apache2/ssl_keys_for_apache/coffeecuptogo.ru.crt
+        SSLCertificateKeyFile /etc/apache2/ssl_keys_for_apache/coffeecuptogo.ru.key
 </VirtualHost>
 ```
 
-* Прокси на админку (/etc/apache2/sites-available/coffeecuptogo_admin.olegtsss.ru.conf):
+* Прокси на админку (/etc/apache2/sites-available/coffeecuptogo_admin.ru.conf):
 
 ```
-<VirtualHost coffeecuptogo.olegtsss.ru:443>
+<VirtualHost coffeecuptogo.ru:443>
         ServerAdmin admin@olegtsss.ru
-        ServerName coffeecuptogo.olegtsss.ru
-        ServerAlias www.coffeecuptogo.olegtsss.ru
-        DocumentRoot /var/www/https/coffeecuptogo_admin.olegtsss.ru/
+        ServerName coffeecuptogo.ru
+        ServerAlias www.coffeecuptogo.ru
+        DocumentRoot /var/www/https/coffeecuptogo_admin.ru/
         ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
         SSLEngine on
-        SSLCertificateFile /etc/apache2/ssl_keys_for_apache/coffeecuptogo.olegtsss.ru.crt
-        SSLCertificateKeyFile /etc/apache2/ssl_keys_for_apache/coffeecuptogo.olegtsss.ru.key
+        SSLCertificateFile /etc/apache2/ssl_keys_for_apache/coffeecuptogo.ru.crt
+        SSLCertificateKeyFile /etc/apache2/ssl_keys_for_apache/coffeecuptogo.ru.key
 </VirtualHost>
 ```
 
-* Прокси на Nginx (/etc/apache2/sites-available/coffeecuptogo_admin.olegtsss.ru.conf):
+* Прокси на Nginx (/etc/apache2/sites-available/coffeecuptogo_admin.ru.conf):
 
 ```
 server {
     server_tokens off;
-    server_name coffeecuptogo.olegtsss.ru;
+    server_name coffeecuptogo.ru;
     location / {
         include proxy_params;
         proxy_pass http://127.0.0.1:2005;
@@ -193,26 +194,26 @@ server {
     server_tokens off;
     listen 5000 ssl;
 
-    server_name coffeecuptogo.olegtsss.ru;
+    server_name coffeecuptogo.ru;
     location / {
         include proxy_params;
         proxy_pass http://127.0.0.1:2006;
     }
-    ssl_certificate /etc/letsencrypt/live/coffeecuptogo.olegtsss.ru/cert.pem;
-    ssl_certificate_key /etc/letsencrypt/live/coffeecuptogo.olegtsss.ru/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/coffeecuptogo.ru/cert.pem;
+    ssl_certificate_key /etc/letsencrypt/live/coffeecuptogo.ru/privkey.pem;
 }
 
 server {
     server_tokens off;
     listen 443 ssl;
 
-    server_name coffeecuptogo.olegtsss.ru;
+    server_name coffeecuptogo.ru;
     location / {
         include proxy_params;
         proxy_pass http://127.0.0.1:2007;
     }
-    ssl_certificate /etc/letsencrypt/live/coffeecuptogo.olegtsss.ru/cert.pem;
-    ssl_certificate_key /etc/letsencrypt/live/coffeecuptogo.olegtsss.ru/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/coffeecuptogo.ru/cert.pem;
+    ssl_certificate_key /etc/letsencrypt/live/coffeecuptogo.ru/privkey.pem;
 }
 ```
 
